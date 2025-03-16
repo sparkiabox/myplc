@@ -19,6 +19,10 @@ namespace myplc {
         milliseconds ET = milliseconds(0); // Elapsed time
         milliseconds PT = milliseconds(0); // Preset time to reach before Q activates
         void execute(); //Execute one timer cycle
+        
+        TON(milliseconds init_PT) {
+            PT = init_PT;
+        }
 
     };
 

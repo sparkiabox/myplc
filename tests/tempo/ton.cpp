@@ -1,11 +1,10 @@
 #include <iostream>
 #include <thread>
-#include "../src/myplc.h"
+#include "../../src/myplc.h"
 
 int main() {
     // Initialize
-    myplc::TON ton1;
-    ton1.PT = milliseconds(2000);
+    myplc::TON ton1(milliseconds(2000)); //2 seconds timer on delay
 
     // Loop Program
     std::cout << std::boolalpha << "Start" << std::endl;
