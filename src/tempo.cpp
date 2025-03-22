@@ -2,21 +2,20 @@
 
 namespace myplc {
 
-    void TON::execute() { 
-
+    void TON::IN(bool _IN) {
         //Rising Edge of the input trigger
-        if(IN && !old_IN && (PT >= milliseconds(0))) {
+        if(_IN && !old_IN && (_PT >= 0ms)) {
             start=std::chrono::system_clock::now();
-            ET = milliseconds(0);
-            Q = false;
+            _ET = 0ms;
+            _Q = false;
             running = true;
             old_IN = true;
         }
 
         //Falling Edge of the input trigger
-        if (!IN && old_IN) {
-            ET = milliseconds(0);
-            Q = false;
+        if (!_IN && old_IN) {
+            _ET = 0ms;
+            _Q = false;
             running = false;
             old_IN = false;
         }
@@ -24,13 +23,14 @@ namespace myplc {
         //Tempo Running 
         if(running) {
             auto now = std::chrono::system_clock::now();
-            ET = std::chrono::duration_cast<milliseconds>(now-start);
-            if (ET >= PT) {
-                Q = true;
+            _ET = std::chrono::duration_cast<std::chrono::milliseconds>(now-start);
+            if (_ET >= _PT) {
+                _Q = true;
+                running = false;
             }
         }
 
     }
 
-    
 }
+
