@@ -29,9 +29,9 @@ This project is in early development. Core function blocks are being implemented
 # How We Manage Files
 
 - **src/**: Contains the source code developed to build the `myplc` library.
-- **tests/**: Holds test programs used to validate the library’s functionality.
 - **samples/**: Includes standalone sample programs that work independently of the environment.
-- **CMake**: We’ll release a CMake file soon to automate installation and library setup.
+- **Makefile**: We’ll release a CMake file soon to automate installation and library setup.
+- **user_code**: We’ll release a CMake file soon to automate installation and library setup.
 
 # Our Roadmap
 

@@ -11,11 +11,11 @@ while (true) {
 
     switch (STEP_MACHINE)
     {
-    case 0:
+    case 0: //init value
 
         break;
 
-    case 1: // Reset Timer
+    case 1: // Run the TON
 
         break;
     

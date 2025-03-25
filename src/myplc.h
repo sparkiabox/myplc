@@ -9,8 +9,8 @@ namespace myplc {
     class TON {
 
     protected:
-        bool _IN = false; 
-        bool _Q  = false;  
+        bool _IN = false ; 
+        bool _Q  = false ;  
         std::chrono::milliseconds _PT = 0ms; 
         std::chrono::milliseconds _ET = 0ms; 
 
@@ -24,6 +24,11 @@ namespace myplc {
         int32_t ET(){return _ET.count();} // Elapsed time
         bool Q(){return _Q;} // Output signal
 
+    };
+
+    class TOF : public TON {
+    public :
+        void IN(bool) override;
     };
 
 }
