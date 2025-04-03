@@ -12,7 +12,11 @@ USER_OBJECTS = $(patsubst user_code/src/%.cpp,user_code/obj/%.o,$(USER_SOURCES))
 EXECUTABLE = runtime
 
 # Default target: build both the library and the executable
-all: $(LIBRARY) $(EXECUTABLE)
+all: dirs $(LIBRARY) $(EXECUTABLE)
+
+# Create directories explicitly
+dirs:
+	@mkdir -p src/myplc_obj user_code/obj
 
 # Link the user objects with the library to create the executable
 $(EXECUTABLE): $(USER_OBJECTS) $(LIBRARY)
@@ -32,4 +36,4 @@ user_code/obj/%.o: user_code/src/%.cpp
 
 # Clean up
 clean:
-	rm -f $(LIB_OBJECTS) $(USER_OBJECTS) $(LIBRARY) $(EXECUTABLE)
+	rm -rf $(LIBRARY) $(EXECUTABLE) src/myplc_obj user_code/obj

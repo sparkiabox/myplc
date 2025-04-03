@@ -5,7 +5,7 @@ using namespace std::chrono_literals;
 
 namespace myplc {
 
-    // Timer On Delay class (TON)
+    // Timer
     class TON {
 
     protected:
@@ -31,6 +31,21 @@ namespace myplc {
         void IN(bool) override;
     };
 
+    class TP : public TON {
+    public :
+        void IN(bool) override;
+    };
+
+    class R_TRIG {
+    public :
+        bool CLK(bool);
+    };
+
+    class F_TRIG {
+        public :
+            bool CLK(bool);
+        };
+    
 }
 
 #endif
